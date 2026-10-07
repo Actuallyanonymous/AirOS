@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "airos"
+version = "0.1.0"
+description = "Touchless gesture control for macOS. Camera frames stay on your Mac."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+keywords = ["macos", "gestures", "hand-tracking"]
+classifiers = [
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Topic :: Multimedia :: Video :: Capture",
+]
+dependencies = [
+    "numpy>=2",
+    "opencv-python>=4.10,<5",
+    "pyobjc-framework-AVFoundation>=12",
+    "pyobjc-framework-Cocoa>=12",
+    "pyobjc-framework-Quartz>=12",
+    "pyobjc-framework-Vision>=12",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+airos = "airos.main:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
